@@ -93,7 +93,7 @@ def train_epoch(model, criterion, optimizer, train_loader, device, writer, epoch
         ssim_epoch += ssim_loss.item()
         l1_epoch += l1_loss.item()
         contrast_epoch += contrast_loss.item()
-        texture_epoch += texture_loss.item()  # 添加这行
+        texture_epoch += texture_loss.item()  
         reg_epoch += reg_loss.item()
 
         # 更新进度条
@@ -102,7 +102,7 @@ def train_epoch(model, criterion, optimizer, train_loader, device, writer, epoch
             'ssim': f'{ssim_loss.item():.4f}',
             'l1': f'{l1_loss.item():.4f}',
             'contrast': f'{contrast_loss.item():.4f}',
-            'texture': f'{texture_loss.item():.4f}',  # 添加这行
+            'texture': f'{texture_loss.item():.4f}',  
             'reg': f'{reg_loss.item():.4f}'
         })
 
@@ -112,7 +112,7 @@ def train_epoch(model, criterion, optimizer, train_loader, device, writer, epoch
     avg_ssim_loss = ssim_epoch / num_batches
     avg_l1_loss = l1_epoch / num_batches
     avg_contrast_loss = contrast_epoch / num_batches
-    avg_texture_loss = texture_epoch / num_batches  # 添加这行
+    avg_texture_loss = texture_epoch / num_batches  
     avg_reg_loss = reg_epoch / num_batches
 
     # 记录到 TensorBoard
@@ -120,7 +120,7 @@ def train_epoch(model, criterion, optimizer, train_loader, device, writer, epoch
     writer.add_scalar("Loss/train_ssim", avg_ssim_loss, epoch)
     writer.add_scalar("Loss/train_l1", avg_l1_loss, epoch)
     writer.add_scalar("Loss/train_contrast", avg_contrast_loss, epoch)
-    writer.add_scalar("Loss/train_texture", avg_texture_loss, epoch)  # 添加这行
+    writer.add_scalar("Loss/train_texture", avg_texture_loss, epoch)
     writer.add_scalar("Loss/train_reg", avg_reg_loss, epoch)
 
     return avg_total_loss
@@ -133,7 +133,7 @@ def validate_epoch(model, criterion, val_loader, device, writer, epoch):
             input_a, input_b = input_a.to(device, non_blocking=True), input_b.to(device, non_blocking=True)
             target1, target2 = input_a, input_b
             output = model(input_a, input_b)
-            loss, _, _, _, _, _ = criterion(output, target1, target2, model, return_all=True)  # 修改这里
+            loss, _, _, _, _, _ = criterion(output, target1, target2, model, return_all=True) 
             val_loss += loss.mean().item()
     
     avg_val_loss = val_loss / len(val_loader)
@@ -145,7 +145,7 @@ def main():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     epochs = 370
-    batch_size = 2  # 降低 batch size 以减少显存占用
+    batch_size = 2  
     learning_rate = 1e-4
     
     checkpoint_path = "checkpoints/best.pt"
