@@ -9,3 +9,16 @@ scikit-image == 0.21.0 \
 numpy >= 1.21 \
 tqdm >= 4.60 \
 torchinfo >= 1.8
+
+# Train
+```bash
+CUDA_VISIBLE_DEVICES=0,1 python train.py
+```
+
+# Test
+You need to put the dataset in the ./dataset/train/ .
+You need to put the best.pt in the ./checkpoints/ .
+```bash
+python test.py
+```
+# Dataset :
