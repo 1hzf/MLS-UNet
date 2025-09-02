@@ -1,5 +1,5 @@
-# MLS-UNet & MSP-dataset
-Polarization image fusion network based on multi-scale luminance-aware UNet & Multi-scene polarization dataset
+# MLSU & MSP-dataset
+A Luminance-Aware Multi-Scale Network and Dataset for Polarization Image Fusion
 # Expirement
 Python >= 3.8 \
 Torch == 2.1.0 \
