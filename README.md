@@ -1,5 +1,5 @@
 # MLSU & MSP-dataset
-A Luminance-Aware Multi-Scale Network and Dataset for Polarization Image Fusion
+A Luminance-Aware Multi-Scale Network and Dataset for Polarization Image Fusion.\
 Arxiv Link: [https://arxiv.org/abs/2508.16881](https://arxiv.org/abs/2510.24379v1)
 # Network Architecture
 ![image](https://github.com/1hzf/MLS-UNet/blob/main/FIG/FIG/model.png)
@@ -39,4 +39,3 @@ You need to put the best.pt in the ./checkpoints/ .
 ```bash
 python test.py
 ```
-
